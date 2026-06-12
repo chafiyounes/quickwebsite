@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MISA 2026 — Seminar</title>
+  <meta name="description" content="Introduction to the MISA 2026 seminar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --margin-width: clamp(80px, 14vw, 220px);
+      --content-max: min(820px, calc(100vw - var(--margin-width) * 2 - 2rem));
+    }
+
+    html, body {
+      height: 100%;
+      font-family: "Instrument Sans", system-ui, sans-serif;
+      background: #0c0c0e;
+      color: #f4f4f5;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Blurred side panels */
+    .side-panel {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: var(--margin-width);
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .side-panel--left { left: 0; }
+    .side-panel--right { right: 0; }
+
+    .side-panel__image {
+      position: absolute;
+      inset: -20%;
+      background: url("assets/design-preview.png") center / cover no-repeat;
+      filter: blur(28px) saturate(1.15) brightness(0.55);
+      transform: scale(1.1);
+    }
+
+    .side-panel--left .side-panel__image {
+      object-position: left center;
+      mask-image: linear-gradient(to right, black 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black 40%, transparent 100%);
+    }
+
+    .side-panel--right .side-panel__image {
+      mask-image: linear-gradient(to left, black 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
+    }
+
+    .side-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(12, 12, 14, 0.3), rgba(12, 12, 14, 0.6));
+    }
+
+    /* Main layout */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1rem 3rem;
+    }
+
+    header {
+      text-align: center;
+      max-width: var(--content-max);
+      margin-bottom: 2rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #a1a1aa;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: #a1a1aa;
+      line-height: 1.5;
+      max-width: 36ch;
+      margin: 0 auto;
+    }
+
+    /* PDF viewer */
+    .viewer-wrap {
+      width: 100%;
+      max-width: var(--content-max);
+      flex: 1;
+    }
+
+    .viewer {
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 24px 48px rgba(0, 0, 0, 0.45);
+    }
+
+    .viewer__toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.85rem;
+      color: #a1a1aa;
+    }
+
+    .viewer__toolbar a {
+      color: #e4e4e7;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      transition: background 0.15s;
+    }
+
+    .viewer__toolbar a:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .viewer__frame {
+      width: 100%;
+      height: min(78vh, 920px);
+      border: none;
+      display: block;
+      background: #fff;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #52525b;
+    }
+
+    @media (max-width: 720px) {
+      :root { --margin-width: 0px; }
+
+      .side-panel { display: none; }
+
+      .page { padding-top: 1.75rem; }
+
+      .viewer__frame { height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="side-panel side-panel--left" aria-hidden="true">
+    <div class="side-panel__image"></div>
+  </aside>
+  <aside class="side-panel side-panel--right" aria-hidden="true">
+    <div class="side-panel__image"></div>
+  </aside>
+
+  <main class="page">
+    <header>
+      <p class="eyebrow">Seminar Introduction</p>
+      <h1>MISA 2026</h1>
+      <p class="subtitle">Welcome. Below is the design overview for the seminar.</p>
+    </header>
+
+    <section class="viewer-wrap">
+      <div class="viewer">
+        <div class="viewer__toolbar">
+          <span>MISA-2026.pdf</span>
+          <a href="MISA-2026.pdf" download>Download PDF</a>
+        </div>
+        <iframe
+          class="viewer__frame"
+          src="MISA-2026.pdf"
+          title="MISA 2026 design document"
+        ></iframe>
+      </div>
+    </section>
+
+    <footer>MISA 2026 Seminar</footer>
+  </main>
+</body>
+</html>
