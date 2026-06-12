@@ -1,20 +1,29 @@
 # MISA 2026 Seminar
 
-A simple introduction page for the MISA 2026 seminar, featuring the design PDF with blurred side margins.
+Site d'introduction pour la **Deuxième édition de la journée scientifique MISA** (Métrologie, Instrumentation Scientifique et Accréditation), structuré comme une page de conférence académique.
+
+## Structure (inspirée de [CIDEEV 2026](https://cideev2026.sciencesconf.org/))
+
+- Accueil (hero)
+- Description
+- Dates importantes
+- Thèmes (carrousel)
+- Programme
+- Intervenants
+- Comité d'organisation
+- Affiche officielle (image + PDF)
+- Inscription
+- Soumettre
+- Éditions précédentes
+- Lieu
 
 ## Deploy on Vercel
 
 1. Push this repo to GitHub.
-2. Go to [vercel.com/new](https://vercel.com/new).
-3. Import the repository.
-4. Leave the default settings (static site, no build command).
-5. Deploy.
-
-The site serves `index.html` at the root. No build step required.
+2. Import at [vercel.com/new](https://vercel.com/new).
+3. No build command needed — static site.
 
 ## Local preview
-
-Open `index.html` in a browser, or run a local server:
 
 ```bash
 npx serve .
@@ -22,7 +31,9 @@ npx serve .
 
 ## Files
 
-- `index.html` — main page
-- `MISA-2026.pdf` — seminar design document
-- `assets/design-preview.png` — preview image used for blurred side panels
-- `vercel.json` — PDF headers for Vercel
+- `index.html` — page principale
+- `css/styles.css` — styles
+- `js/main.js` — menu mobile et carrousel
+- `MISA-2026.pdf` — affiche originale
+- `assets/design-full.png` — version image haute résolution
+- `assets/design-preview.png` — aperçu pour arrière-plans

@@ -1,215 +1,426 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MISA 2026 — Seminar</title>
-  <meta name="description" content="Introduction to the MISA 2026 seminar." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --margin-width: clamp(80px, 14vw, 220px);
-      --content-max: min(820px, calc(100vw - var(--margin-width) * 2 - 2rem));
-    }
-
-    html, body {
-      height: 100%;
-      font-family: "Instrument Sans", system-ui, sans-serif;
-      background: #0c0c0e;
-      color: #f4f4f5;
-    }
-
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Blurred side panels */
-    .side-panel {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: var(--margin-width);
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .side-panel--left { left: 0; }
-    .side-panel--right { right: 0; }
-
-    .side-panel__image {
-      position: absolute;
-      inset: -20%;
-      background: url("assets/design-preview.png") center / cover no-repeat;
-      filter: blur(28px) saturate(1.15) brightness(0.55);
-      transform: scale(1.1);
-    }
-
-    .side-panel--left .side-panel__image {
-      object-position: left center;
-      mask-image: linear-gradient(to right, black 40%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, black 40%, transparent 100%);
-    }
-
-    .side-panel--right .side-panel__image {
-      mask-image: linear-gradient(to left, black 40%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
-    }
-
-    .side-panel::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(12, 12, 14, 0.3), rgba(12, 12, 14, 0.6));
-    }
-
-    /* Main layout */
-    .page {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2.5rem 1rem 3rem;
-    }
-
-    header {
-      text-align: center;
-      max-width: var(--content-max);
-      margin-bottom: 2rem;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #a1a1aa;
-      margin-bottom: 0.75rem;
-    }
-
-    h1 {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-    }
-
-    .subtitle {
-      font-size: 1.05rem;
-      color: #a1a1aa;
-      line-height: 1.5;
-      max-width: 36ch;
-      margin: 0 auto;
-    }
-
-    /* PDF viewer */
-    .viewer-wrap {
-      width: 100%;
-      max-width: var(--content-max);
-      flex: 1;
-    }
-
-    .viewer {
-      background: #18181b;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.04),
-        0 24px 48px rgba(0, 0, 0, 0.45);
-    }
-
-    .viewer__toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.75rem 1rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.85rem;
-      color: #a1a1aa;
-    }
-
-    .viewer__toolbar a {
-      color: #e4e4e7;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      transition: background 0.15s;
-    }
-
-    .viewer__toolbar a:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .viewer__frame {
-      width: 100%;
-      height: min(78vh, 920px);
-      border: none;
-      display: block;
-      background: #fff;
-    }
-
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #52525b;
-    }
-
-    @media (max-width: 720px) {
-      :root { --margin-width: 0px; }
-
-      .side-panel { display: none; }
-
-      .page { padding-top: 1.75rem; }
-
-      .viewer__frame { height: 70vh; }
-    }
-  </style>
+  <title>MISA 2026 — Métrologie, Instrumentation Scientifique et Accréditation</title>
+  <meta name="description" content="Deuxième édition de la journée scientifique MISA — Mercredi 24 juin 2026, EST Casablanca." />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <aside class="side-panel side-panel--left" aria-hidden="true">
-    <div class="side-panel__image"></div>
-  </aside>
-  <aside class="side-panel side-panel--right" aria-hidden="true">
-    <div class="side-panel__image"></div>
-  </aside>
-
-  <main class="page">
-    <header>
-      <p class="eyebrow">Seminar Introduction</p>
-      <h1>MISA 2026</h1>
-      <p class="subtitle">Welcome. Below is the design overview for the seminar.</p>
-    </header>
-
-    <section class="viewer-wrap">
-      <div class="viewer">
-        <div class="viewer__toolbar">
-          <span>MISA-2026.pdf</span>
-          <a href="MISA-2026.pdf" download>Download PDF</a>
-        </div>
-        <iframe
-          class="viewer__frame"
-          src="MISA-2026.pdf"
-          title="MISA 2026 design document"
-        ></iframe>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__logos">
+        <img src="assets/logos/LP2MGI.png" alt="LP2MGI" class="topbar__logo topbar__logo--lp2mgi" />
+        <img src="assets/logos/acgiia.png" alt="ACGIIA" class="topbar__logo topbar__logo--acgiia" />
+        <img src="assets/logos/est-anniversary.png" alt="EST Casablanca — 40e anniversaire" class="topbar__logo topbar__logo--est" />
       </div>
-    </section>
+      <div class="topbar__contact">
+        <a href="tel:+212522252245">+212 522 252245</a>
+      </div>
+    </div>
+  </div>
 
-    <footer>MISA 2026 Seminar</footer>
-  </main>
+  <header class="site-header">
+    <div class="container site-nav">
+      <a class="site-nav__logo" href="#home">MISA-2026</a>
+      <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="main-nav">MENU</button>
+      <ul class="site-nav__menu" id="main-nav">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#committees">Comité</a></li>
+        <li><a href="#topics">Thèmes</a></li>
+        <li><a href="#speakers">Intervenants</a></li>
+        <li><a href="#registration">Inscription</a></li>
+        <li><a href="#submit">Soumettre</a></li>
+        <li><a href="#venue">Lieu</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero__slideshow" aria-hidden="true">
+      <div class="hero__slide is-active" style="background-image: url('assets/hero-metrology.png')"></div>
+      <div class="hero__slide" style="background-image: url('assets/hero-instrumentation.jpg')"></div>
+      <div class="hero__slide" style="background-image: url('assets/hero-precision.jpg')"></div>
+      <div class="hero__slide" style="background-image: url('assets/hero-microscope.jpg')"></div>
+      <div class="hero__slide" style="background-image: url('assets/hero-lab-science.jpg')"></div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <div class="hero__logos reveal">
+        <img src="assets/logos/LP2MGI.png" alt="LP2MGI" />
+        <img src="assets/logos/acgiia.png" alt="ACGIIA" />
+        <img src="assets/logos/est-anniversary.png" alt="EST Casablanca — 40e anniversaire" class="hero__logo-est" />
+      </div>
+      <p class="hero__badge reveal reveal-delay-1">Deuxième édition</p>
+      <h1 class="reveal reveal-delay-2">MISA-2026</h1>
+      <p class="hero__subtitle reveal reveal-delay-3">Journée Scientifique en Métrologie, Instrumentation Scientifique et Accréditation</p>
+      <p class="hero__theme reveal reveal-delay-4">« Mesurer avec précision, innover avec confiance, exceller avec qualité »</p>
+      <div class="hero__meta reveal reveal-delay-5">
+        <span>Mercredi 24 Juin 2026</span>
+        <span>École Supérieure de Technologie, Casablanca, Maroc</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="description">
+    <div class="container">
+      <div class="section__header">
+        <h2>Description</h2>
+        <div class="section__divider"></div>
+      </div>
+      <div class="description-grid">
+        <div>
+          <p>
+            À l'occasion de la <strong>Journée mondiale de la Métrologie</strong> et du
+            <strong>40<sup>e</sup> anniversaire de l'EST</strong> de Casablanca, le Laboratoire des Procédés,
+            Mécanique, Matériaux et Génie Industriel (LP2MGI), l'Équipe de Génie Industriel (GIL) de l'ESTC
+            et l'ACGIIA organisent la <strong>Deuxième édition de la journée Scientifique MISA</strong>.
+          </p>
+          <p>
+            Cette rencontre réunira chercheurs, enseignants-chercheurs, étudiants et professionnels autour
+            des avancées en métrologie, instrumentation scientifique, qualité, normalisation et accréditation.
+            Elle sera l'occasion de présenter les dernières avancées et d'échanger des idées.
+          </p>
+        </div>
+        <aside class="callout-card">
+          <h3>📢 Appel à communications</h3>
+          <p>
+            Des sessions orales parallèles accueilleront les communications sélectionnées.
+            Consultez la section <a href="#submit">Soumettre</a> pour les modalités de dépôt.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt reveal" id="dates">
+    <div class="container">
+      <div class="section__header">
+        <h2>Dates importantes</h2>
+        <div class="section__divider"></div>
+      </div>
+      <ul class="dates-list">
+        <li>
+          <span class="dates-list__date">24 Juin 2026</span>
+          <span class="dates-list__label">Journée Scientifique MISA — EST Casablanca</span>
+        </li>
+        <li>
+          <span class="dates-list__date">8h30 – 17h</span>
+          <span class="dates-list__label">Programme complet : accueil, conférences, sessions orales et clôture</span>
+        </li>
+        <li>
+          <span class="dates-list__date">À confirmer</span>
+          <span class="dates-list__label">Date limite de soumission des résumés — voir section Soumettre</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section reveal" id="topics">
+    <div class="container">
+      <div class="section__header">
+        <h2>Thèmes</h2>
+        <p>La journée scientifique couvre un large éventail de domaines liés à la métrologie, à l'instrumentation scientifique et à l'accréditation.</p>
+        <div class="section__divider"></div>
+      </div>
+      <div class="topics-carousel">
+        <div class="topics-carousel__viewport">
+          <div class="topics-carousel__track">
+            <article class="topic-slide">
+              <div class="topic-card">
+                <h3>Thème 1 : Métrologie et Instrumentation Scientifique</h3>
+                <p>
+                  Mesure dimensionnelle, instrumentation de laboratoire, traçabilité métrologique et
+                  techniques de contrôle pour garantir la fiabilité des résultats scientifiques et industriels.
+                </p>
+              </div>
+            </article>
+            <article class="topic-slide">
+              <div class="topic-card">
+                <h3>Thème 2 : Qualité, Normalisation et Accréditation</h3>
+                <p>
+                  Systèmes de management de la qualité, normes internationales, accréditation selon
+                  ISO/IEC 17025 et bonnes pratiques pour la reconnaissance des compétences des laboratoires.
+                </p>
+              </div>
+            </article>
+            <article class="topic-slide">
+              <div class="topic-card">
+                <h3>Thème 3 : Innovation et Performance des Systèmes Industriels</h3>
+                <p>
+                  Applications industrielles de la métrologie, amélioration des performances, innovation
+                  technologique et intégration des exigences qualité dans les processus de production.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Thème précédent">❮</button>
+          <div class="carousel-dots" aria-hidden="true"></div>
+          <button class="carousel-btn carousel-btn--next" type="button" aria-label="Thème suivant">❯</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt reveal" id="program">
+    <div class="container">
+      <div class="section__header">
+        <h2>Programme</h2>
+        <div class="section__divider"></div>
+      </div>
+      <div class="program-days">
+        <article class="program-day">
+          <h3 class="program-day__title">Mercredi 24 Juin 2026</h3>
+          <ul class="program-day__list">
+            <li>
+              <span class="program-day__time">8h30 – 9h</span>
+              <div class="program-day__detail">Accueil des participants</div>
+            </li>
+            <li>
+              <span class="program-day__time">9h – 9h15</span>
+              <div class="program-day__detail">
+                <strong>Mot du Directeur de l'ESTC</strong>
+                <span>Pr. Rachid ESSAMOUD</span>
+              </div>
+            </li>
+            <li>
+              <span class="program-day__time">9h15 – 10h30</span>
+              <div class="program-day__detail">
+                <strong>Première présentation — Métrologie Dimensionnelle</strong>
+                <span>M. Hatim Fouad, Ingénieur Métrologue, EST Casablanca</span>
+              </div>
+            </li>
+            <li>
+              <span class="program-day__time">10h30 – 11h</span>
+              <div class="program-day__detail">Pause café</div>
+            </li>
+            <li>
+              <span class="program-day__time">11h – 12h</span>
+              <div class="program-day__detail">
+                <strong>Deuxième présentation — Accréditation selon ISO/IEC 17025</strong>
+              </div>
+            </li>
+            <li>
+              <span class="program-day__time">12h – 13h</span>
+              <div class="program-day__detail">
+                <strong>Troisième présentation — Normes et Métrologie</strong>
+                <span>Dr. Oumaima Oullada, Professeure Permanente à l'ESTEM, Casablanca</span>
+              </div>
+            </li>
+            <li>
+              <span class="program-day__time">13h – 13h30</span>
+              <div class="program-day__detail">Discussion et clôture de la journée scientifique</div>
+            </li>
+            <li>
+              <span class="program-day__time">14h – 17h</span>
+              <div class="program-day__detail">Sessions orales en parallèle des communications choisies</div>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="speakers">
+    <div class="container">
+      <div class="section__header">
+        <h2>Intervenants</h2>
+        <div class="section__divider"></div>
+      </div>
+      <div class="cards-grid">
+        <article class="person-card">
+          <p class="role">Mot d'ouverture</p>
+          <h3>Pr. Rachid ESSAMOUD</h3>
+          <p>Directeur de l'ESTC</p>
+        </article>
+        <article class="person-card">
+          <p class="role">Métrologie Dimensionnelle</p>
+          <h3>M. Hatim Fouad</h3>
+          <p>Ingénieur Métrologue, EST Casablanca</p>
+        </article>
+        <article class="person-card">
+          <p class="role">Normes et Métrologie</p>
+          <h3>Dr. Oumaima Oullada</h3>
+          <p>Professeure Permanente à l'ESTEM, Casablanca</p>
+        </article>
+        <article class="person-card">
+          <p class="role">Coordonnateur</p>
+          <h3>Pr. BEN ALI Mohamed</h3>
+          <p>EST Casablanca / UH2</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt reveal" id="committees">
+    <div class="container">
+      <div class="section__header">
+        <h2>Comité d'organisation</h2>
+        <div class="section__divider"></div>
+      </div>
+      <div class="cards-grid">
+        <article class="org-card org-card--logo">
+          <img src="assets/logos/LP2MGI.png" alt="" class="org-card__logo" />
+          <h3>LP2MGI</h3>
+          <p>Laboratoire des Procédés, Mécanique, Matériaux et Génie Industriel</p>
+        </article>
+        <article class="org-card org-card--logo">
+          <img src="assets/logos/est-anniversary.png" alt="" class="org-card__logo org-card__logo--est" />
+          <h3>GIL — ESTC</h3>
+          <p>Équipe de Génie Industriel de l'École Supérieure de Technologie de Casablanca</p>
+        </article>
+        <article class="org-card org-card--logo">
+          <img src="assets/logos/acgiia.png" alt="" class="org-card__logo" />
+          <h3>ACGIIA</h3>
+          <p>Association partenaire de l'organisation de la journée scientifique MISA</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="poster">
+    <div class="container poster-section">
+      <div class="section__header">
+        <h2>Affiche officielle</h2>
+        <p>Version image de l'affiche MISA 2026 pour une lecture facile sur tous les appareils.</p>
+        <div class="section__divider"></div>
+      </div>
+      <figure class="poster-frame">
+        <img src="assets/design-full.png" alt="Affiche MISA 2026 — Journée scientifique du 24 juin 2026" width="1191" height="1685" />
+      </figure>
+      <div class="poster-actions">
+        <a class="btn btn--primary" href="MISA-2026.pdf" download>Télécharger le PDF</a>
+        <a class="btn btn--secondary" href="assets/design-full.png" download>Télécharger l'image</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="registration">
+    <div class="container">
+      <div class="section__header">
+        <h2>Inscription</h2>
+        <div class="section__divider"></div>
+      </div>
+      <div class="action-grid">
+        <article class="action-card">
+          <h3>Participation à la journée</h3>
+          <p>
+            L'inscription est ouverte aux chercheurs, enseignants, étudiants et professionnels intéressés
+            par la métrologie et l'accréditation.
+          </p>
+          <a class="btn btn--primary" href="https://www.est-uh2c.ac.ma/contact/" target="_blank" rel="noopener noreferrer">Contacter l'organisateur</a>
+        </article>
+        <article class="action-card">
+          <h3>Informations pratiques</h3>
+          <p>
+            Mercredi 24 juin 2026 · 8h30 – 17h<br />
+            École Supérieure de Technologie, Route d'El Jadida, Km 7, Casablanca
+          </p>
+          <a class="btn btn--secondary" href="tel:+212522252245">+212 522 252245</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="submit">
+    <div class="container">
+      <div class="section__header">
+        <h2>Soumettre</h2>
+        <div class="section__divider"></div>
+      </div>
+      <div class="action-grid">
+        <article class="action-card">
+          <h3>📢 Appel à communications</h3>
+          <p>
+            Les auteurs sont invités à soumettre des communications orales dans les domaines de la métrologie,
+            de l'instrumentation scientifique, de la qualité, de la normalisation et de l'accréditation.
+          </p>
+          <a class="btn btn--primary" href="https://www.est-uh2c.ac.ma/contact/" target="_blank" rel="noopener noreferrer">Contacter pour soumettre</a>
+        </article>
+        <article class="action-card">
+          <h3>Modalités</h3>
+          <p>
+            Les communications sélectionnées seront présentées lors des sessions orales parallèles (14h – 17h).
+            La date limite de soumission sera communiquée prochainement.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="editions">
+    <div class="container">
+      <div class="section__header">
+        <h2>Éditions précédentes</h2>
+        <div class="section__divider"></div>
+      </div>
+      <ul class="editions-list">
+        <li><strong>Première édition MISA</strong> — Informations et archives à venir</li>
+        <li><strong>MISA 2026</strong> — Deuxième édition, 24 juin 2026, EST Casablanca</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="venue">
+    <div class="container">
+      <div class="section__header">
+        <h2>Bienvenue à Casablanca</h2>
+        <div class="section__divider"></div>
+      </div>
+      <div class="venue-grid">
+        <div class="venue-info">
+          <h3>Lieu de la conférence</h3>
+          <p>
+            <strong>École Supérieure de Technologie (ESTC)</strong><br />
+            Route d'El Jadida, Km 7<br />
+            Casablanca, Maroc
+          </p>
+          <p>
+            Téléphone : <a href="tel:+212522252245">+212 522 252245</a><br />
+            Site web : <a href="https://www.est-uh2c.ac.ma/contact/" target="_blank" rel="noopener noreferrer">est-uh2c.ac.ma</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+212522252245">+212 522 252245</a></li>
+            <li><a href="https://www.est-uh2c.ac.ma/contact/" target="_blank" rel="noopener noreferrer">est-uh2c.ac.ma/contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Organisation</h4>
+          <ul>
+            <li>LP2MGI</li>
+            <li>GIL — ESTC</li>
+            <li>ACGIIA</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#program">Programme</a></li>
+            <li><a href="#topics">Thèmes</a></li>
+            <li><a href="#submit">Soumettre</a></li>
+            <li><a href="#venue">Lieu</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        MISA 2026 — Métrologie, Instrumentation Scientifique et Accréditation
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
