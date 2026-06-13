@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MISA 2026 — Métrologie, Instrumentation Scientifique et Accréditation</title>
-  <meta name="description" content="Deuxième édition de la journée scientifique MISA — Mercredi 24 juin 2026, EST Casablanca." />
+  <title>JS-MISA 2026 — Métrologie, Instrumentation et Accréditation</title>
+  <meta name="description" content="2ème Journée Scientifique JS-MISA — Jeudi 24 juin 2026, EST Casablanca." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -16,18 +16,19 @@
         <img src="assets/logos/est-anniversary.png" alt="EST Casablanca — 40e anniversaire" class="topbar__logo topbar__logo--est" />
       </div>
       <div class="topbar__contact">
-        <a href="tel:+212522252245">+212 522 252245</a>
+        <a href="mailto:estc.benali@gmail.com">estc.benali@gmail.com</a>
       </div>
     </div>
   </div>
 
   <header class="site-header">
     <div class="container site-nav">
-      <a class="site-nav__logo" href="#home">MISA-2026</a>
+      <a class="site-nav__logo" href="#home">JS-MISA 2026</a>
       <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="main-nav">MENU</button>
       <ul class="site-nav__menu" id="main-nav">
         <li><a href="#home">Accueil</a></li>
-        <li><a href="#committees">Comité</a></li>
+        <li><a href="#objectives">Objectifs</a></li>
+        <li><a href="#committees">Comités</a></li>
         <li><a href="#topics">Thèmes</a></li>
         <li><a href="#speakers">Intervenants</a></li>
         <li><a href="#registration">Inscription</a></li>
@@ -52,12 +53,12 @@
         <img src="assets/logos/acgiia.png" alt="ACGIIA" />
         <img src="assets/logos/est-anniversary.png" alt="EST Casablanca — 40e anniversaire" class="hero__logo-est" />
       </div>
-      <p class="hero__badge reveal reveal-delay-1">Deuxième édition</p>
-      <h1 class="reveal reveal-delay-2">MISA-2026</h1>
-      <p class="hero__subtitle reveal reveal-delay-3">Journée Scientifique en Métrologie, Instrumentation Scientifique et Accréditation</p>
+      <p class="hero__badge reveal reveal-delay-1">2<sup>e</sup> édition</p>
+      <h1 class="reveal reveal-delay-2">JS-MISA 2026</h1>
+      <p class="hero__subtitle reveal reveal-delay-3">Journée Scientifique en Métrologie, Instrumentation et Accréditation</p>
       <p class="hero__theme reveal reveal-delay-4">« Mesurer avec précision, innover avec confiance, exceller avec qualité »</p>
       <div class="hero__meta reveal reveal-delay-5">
-        <span>Mercredi 24 Juin 2026</span>
+        <span>Jeudi 24 juin 2026</span>
         <span>École Supérieure de Technologie, Casablanca, Maroc</span>
       </div>
     </div>
@@ -66,62 +67,96 @@
   <section class="section reveal" id="description">
     <div class="container">
       <div class="section__header">
-        <h2>Description</h2>
+        <h2>Contexte</h2>
         <div class="section__divider"></div>
       </div>
       <div class="description-grid">
         <div>
           <p>
-            À l'occasion de la <strong>Journée mondiale de la Métrologie</strong> et du
-            <strong>40<sup>e</sup> anniversaire de l'EST</strong> de Casablanca, le Laboratoire des Procédés,
-            Mécanique, Matériaux et Génie Industriel (LP2MGI), l'Équipe de Génie Industriel (GIL) de l'ESTC
-            et l'ACGIIA organisent la <strong>Deuxième édition de la journée Scientifique MISA</strong>.
+            Dans un contexte industriel en constante évolution, les entreprises doivent innover, intégrer les
+            technologies avancées et maîtriser la complexité croissante de leurs systèmes de production.
+            L'Industrie 5.0 et l'intelligence artificielle (IA) transforment les modèles traditionnels vers
+            des systèmes plus intelligents, agiles et durables.
           </p>
           <p>
-            Cette rencontre réunira chercheurs, enseignants-chercheurs, étudiants et professionnels autour
-            des avancées en métrologie, instrumentation scientifique, qualité, normalisation et accréditation.
-            Elle sera l'occasion de présenter les dernières avancées et d'échanger des idées.
+            Les systèmes industriels modernes sont confrontés à des enjeux majeurs : qualité, productivité,
+            maîtrise des coûts, sécurité au travail, traçabilité et durabilité — impliquant une convergence
+            entre la gestion de la production, la maintenance intelligente, la sécurité de l'alimentation
+            et la maîtrise des mesures.
+          </p>
+          <p>
+            C'est dans cette dynamique, et à l'occasion de la <strong>Journée mondiale de la Métrologie</strong>
+            marquant également le <strong>40<sup>e</sup> anniversaire de l'EST</strong> de Casablanca, que
+            s'inscrit cet événement. Le Laboratoire de Procédés, Matériaux, Mécanique et Génie Industriel
+            (LP2MGI), l'Équipe de Génie Industriel et Logistique (GIL) de l'ESTC et l'ACGIIA organisent la
+            <strong>2<sup>e</sup> édition de la JS-MISA 2026</strong>.
+          </p>
+          <p>
+            Placée sous le thème ci-dessus, cette édition se veut un carrefour interdisciplinaire dédié à
+            la recherche appliquée et à l'innovation technologique. Elle vise à renforcer la traçabilité,
+            la conformité aux normes (notamment l'accréditation ISO/IEC 17025) et à structurer un
+            rapprochement durable entre l'université, l'industrie et la société.
           </p>
         </div>
         <aside class="callout-card">
           <h3>📢 Appel à communications</h3>
           <p>
-            Des sessions orales parallèles accueilleront les communications sélectionnées.
-            Consultez la section <a href="#submit">Soumettre</a> pour les modalités de dépôt.
+            Les doctorants et chercheurs sont invités à soumettre leurs résumés pour les sessions orales
+            parallèles. Consultez la section <a href="#submit">Soumettre</a> pour les modalités.
           </p>
+          <p><strong>Date limite :</strong> 21 juin 2026</p>
         </aside>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt reveal" id="dates">
+  <section class="section section--alt reveal" id="objectives">
     <div class="container">
       <div class="section__header">
-        <h2>Dates importantes</h2>
+        <h2>Objectifs</h2>
+        <div class="section__divider"></div>
+      </div>
+      <ul class="objectives-list">
+        <li>Valoriser la recherche nationale en métrologie, instrumentation et accréditation.</li>
+        <li>Partager les pratiques innovantes liées à la précision des mesures et aux normes de qualité.</li>
+        <li>Discuter de l'impact de l'IA sur la performance et l'optimisation des systèmes industriels.</li>
+        <li>Promouvoir les travaux scientifiques des doctorants et des chercheurs à travers les sessions orales.</li>
+        <li>Créer des opportunités de collaboration entre le monde universitaire et le secteur industriel.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section reveal" id="dates">
+    <div class="container">
+      <div class="section__header">
+        <h2>Calendrier et dates importantes</h2>
         <div class="section__divider"></div>
       </div>
       <ul class="dates-list">
         <li>
-          <span class="dates-list__date">24 Juin 2026</span>
-          <span class="dates-list__label">Journée Scientifique MISA — EST Casablanca</span>
+          <span class="dates-list__date">21 juin 2026</span>
+          <span class="dates-list__label">Date limite de soumission du résumé</span>
         </li>
         <li>
-          <span class="dates-list__date">8h30 – 17h</span>
-          <span class="dates-list__label">Programme complet : accueil, conférences, sessions orales et clôture</span>
+          <span class="dates-list__date">22 juin 2026</span>
+          <span class="dates-list__label">Réponse du comité scientifique</span>
         </li>
         <li>
-          <span class="dates-list__date">À confirmer</span>
-          <span class="dates-list__label">Date limite de soumission des résumés — voir section Soumettre</span>
+          <span class="dates-list__date">24 juin 2026</span>
+          <span class="dates-list__label">Journée scientifique JS-MISA — EST Casablanca (8h30 – 17h30)</span>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="section reveal" id="topics">
+  <section class="section section--alt reveal" id="topics">
     <div class="container">
       <div class="section__header">
-        <h2>Thèmes</h2>
-        <p>La journée scientifique couvre un large éventail de domaines liés à la métrologie, à l'instrumentation scientifique et à l'accréditation.</p>
+        <h2>Thématiques</h2>
+        <p>
+          Les thématiques couvrent l'ensemble des disciplines gravitant autour de la métrologie,
+          de l'instrumentation, de l'intelligence artificielle et de l'accréditation.
+        </p>
         <div class="section__divider"></div>
       </div>
       <div class="topics-carousel">
@@ -129,28 +164,28 @@
           <div class="topics-carousel__track">
             <article class="topic-slide">
               <div class="topic-card">
-                <h3>Thème 1 : Métrologie et Instrumentation Scientifique</h3>
+                <h3>Métrologie dimensionnelle</h3>
                 <p>
-                  Mesure dimensionnelle, instrumentation de laboratoire, traçabilité métrologique et
-                  techniques de contrôle pour garantir la fiabilité des résultats scientifiques et industriels.
+                  Techniques de mesure dimensionnelle, traçabilité métrologique et contrôle
+                  pour garantir la fiabilité des résultats scientifiques et industriels.
                 </p>
               </div>
             </article>
             <article class="topic-slide">
               <div class="topic-card">
-                <h3>Thème 2 : Qualité, Normalisation et Accréditation</h3>
+                <h3>Capteurs et intelligence artificielle</h3>
                 <p>
-                  Systèmes de management de la qualité, normes internationales, accréditation selon
-                  ISO/IEC 17025 et bonnes pratiques pour la reconnaissance des compétences des laboratoires.
+                  L'apport de l'IA pour l'optimisation des mesures, la traçabilité et
+                  l'amélioration de la performance des systèmes industriels.
                 </p>
               </div>
             </article>
             <article class="topic-slide">
               <div class="topic-card">
-                <h3>Thème 3 : Innovation et Performance des Systèmes Industriels</h3>
+                <h3>Accréditation ISO/IEC 17025</h3>
                 <p>
-                  Applications industrielles de la métrologie, amélioration des performances, innovation
-                  technologique et intégration des exigences qualité dans les processus de production.
+                  Accréditation des laboratoires selon la norme ISO/IEC 17025, qualité,
+                  normalisation et conformité aux exigences internationales.
                 </p>
               </div>
             </article>
@@ -165,7 +200,7 @@
     </div>
   </section>
 
-  <section class="section section--alt reveal" id="program">
+  <section class="section reveal" id="program">
     <div class="container">
       <div class="section__header">
         <h2>Programme</h2>
@@ -173,7 +208,7 @@
       </div>
       <div class="program-days">
         <article class="program-day">
-          <h3 class="program-day__title">Mercredi 24 Juin 2026</h3>
+          <h3 class="program-day__title">Jeudi 24 juin 2026</h3>
           <ul class="program-day__list">
             <li>
               <span class="program-day__time">8h30 – 9h</span>
@@ -182,41 +217,49 @@
             <li>
               <span class="program-day__time">9h – 9h15</span>
               <div class="program-day__detail">
-                <strong>Mot du Directeur de l'ESTC</strong>
-                <span>Pr. Rachid ESSAMOUD</span>
+                <strong>Cérémonie de bienvenue &amp; mots d'ouverture</strong>
+                <span>Pr. Rachid ESSAMOUD (Directeur de l'ESTC)</span>
+                <span>Pr. BEN ALI Mohamed (ESTC)</span>
               </div>
             </li>
             <li>
               <span class="program-day__time">9h15 – 10h30</span>
               <div class="program-day__detail">
-                <strong>Première présentation — Métrologie Dimensionnelle</strong>
+                <strong>Présentation n°1 — Métrologie dimensionnelle</strong>
                 <span>M. Hatim Fouad, Ingénieur Métrologue, EST Casablanca</span>
               </div>
             </li>
             <li>
               <span class="program-day__time">10h30 – 11h</span>
-              <div class="program-day__detail">Pause café</div>
+              <div class="program-day__detail">☕ Pause-café — échanges et réseautage</div>
             </li>
             <li>
               <span class="program-day__time">11h – 12h</span>
               <div class="program-day__detail">
-                <strong>Deuxième présentation — Accréditation selon ISO/IEC 17025</strong>
+                <strong>Présentation n°2 — Accréditation selon ISO/IEC 17025</strong>
+                <span>Intervenant industriel</span>
               </div>
             </li>
             <li>
               <span class="program-day__time">12h – 13h</span>
               <div class="program-day__detail">
-                <strong>Troisième présentation — Normes et Métrologie</strong>
+                <strong>Conférence n°3 — Normes &amp; Métrologie</strong>
                 <span>Dr. Oumaima Oullada, Professeure Permanente à l'ESTEM, Casablanca</span>
               </div>
             </li>
             <li>
-              <span class="program-day__time">13h – 13h30</span>
-              <div class="program-day__detail">Discussion et clôture de la journée scientifique</div>
+              <span class="program-day__time">14h – 17h</span>
+              <div class="program-day__detail">
+                <strong>Sessions parallèles de communications</strong>
+                <span>Présentations orales des travaux de recherche par les doctorants et chercheurs retenus</span>
+              </div>
             </li>
             <li>
-              <span class="program-day__time">14h – 17h</span>
-              <div class="program-day__detail">Sessions orales en parallèle des communications choisies</div>
+              <span class="program-day__time">17h – 17h30</span>
+              <div class="program-day__detail">
+                <strong>Table ronde et clôture</strong>
+                <span>Synthèse des recommandations, remise des attestations et mot de fin</span>
+              </div>
             </li>
           </ul>
         </article>
@@ -224,7 +267,7 @@
     </div>
   </section>
 
-  <section class="section reveal" id="speakers">
+  <section class="section section--alt reveal" id="speakers">
     <div class="container">
       <div class="section__header">
         <h2>Intervenants</h2>
@@ -237,68 +280,111 @@
           <p>Directeur de l'ESTC</p>
         </article>
         <article class="person-card">
-          <p class="role">Métrologie Dimensionnelle</p>
+          <p class="role">Mot d'ouverture</p>
+          <h3>Pr. BEN ALI Mohamed</h3>
+          <p>Coordonnateur JS-MISA — ESTC, UH2C</p>
+        </article>
+        <article class="person-card">
+          <p class="role">Métrologie dimensionnelle</p>
           <h3>M. Hatim Fouad</h3>
           <p>Ingénieur Métrologue, EST Casablanca</p>
         </article>
         <article class="person-card">
-          <p class="role">Normes et Métrologie</p>
+          <p class="role">Normes &amp; Métrologie</p>
           <h3>Dr. Oumaima Oullada</h3>
           <p>Professeure Permanente à l'ESTEM, Casablanca</p>
-        </article>
-        <article class="person-card">
-          <p class="role">Coordonnateur</p>
-          <h3>Pr. BEN ALI Mohamed</h3>
-          <p>EST Casablanca / UH2</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt reveal" id="committees">
+  <section class="section reveal" id="committees">
     <div class="container">
       <div class="section__header">
-        <h2>Comité d'organisation</h2>
+        <h2>Comités</h2>
         <div class="section__divider"></div>
       </div>
-      <div class="cards-grid">
+      <div class="cards-grid committees-partners">
         <article class="org-card org-card--logo">
           <img src="assets/logos/LP2MGI.png" alt="" class="org-card__logo" />
           <h3>LP2MGI</h3>
-          <p>Laboratoire des Procédés, Mécanique, Matériaux et Génie Industriel</p>
+          <p>Laboratoire de Procédés, Matériaux, Mécanique et Génie Industriel</p>
         </article>
         <article class="org-card org-card--logo">
           <img src="assets/logos/est-anniversary.png" alt="" class="org-card__logo org-card__logo--est" />
           <h3>GIL — ESTC</h3>
-          <p>Équipe de Génie Industriel de l'École Supérieure de Technologie de Casablanca</p>
+          <p>Équipe de Génie Industriel et Logistique (GIL) de l'EST de Casablanca</p>
         </article>
         <article class="org-card org-card--logo">
           <img src="assets/logos/acgiia.png" alt="" class="org-card__logo" />
           <h3>ACGIIA</h3>
-          <p>Association partenaire de l'organisation de la journée scientifique MISA</p>
+          <p>Partenaire de l'organisation de la JS-MISA 2026</p>
         </article>
+      </div>
+      <div class="committees-grid">
+        <div class="committee-block">
+          <h3>Comité d'organisation</h3>
+          <ul class="committee-list">
+            <li>Chafi Mohammed — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Ifassiouen Hassan — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Hatim Fouad — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Ghailani Inssaf — Laboratoire de la Santé Publique, Ministère de la santé, Tétouan</li>
+            <li>Oullada Oumaima — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Tizliouine Abdeslam — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Ammoumou Abdelkrim — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Adri Ahmed — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Aghzer Samir — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Rahmouni Abdellatif — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>El Moufari Meryem — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Chajdi Mohcine — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Maine Mohamed — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>El Haddadi Yasmin — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Alouzad Hasnaa — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Omari Lhaj El Hachemi — Faculté des Sciences Ain Chok, Casablanca</li>
+          </ul>
+        </div>
+        <div class="committee-block">
+          <h3>Comité scientifique</h3>
+          <ul class="committee-list">
+            <li>Adri Ahmed — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Aghzer Samir — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Ammoumou Abdelkrim — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Chafi Mohammed — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Chajdi Mohcine — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>El Moufari Meryem — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Ghailani Inssaf — Laboratoire de la Santé Publique, Ministère de la santé, Tétouan</li>
+            <li>Hatim Fouad — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Ifassiouen Hassan — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Maine Mohamed — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Omari Lhaj El Hachemi — Faculté des Sciences Ain Chok, Casablanca</li>
+            <li>Oullada Oumaima — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Rahmouni Abdellatif — Univ. Hassan II de Casablanca, Maroc</li>
+            <li>Tizliouine Abdeslam — Univ. Hassan II de Casablanca, Maroc</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="poster">
+  <section class="section section--alt" id="poster">
     <div class="container poster-section">
       <div class="section__header">
-        <h2>Affiche officielle</h2>
-        <p>Version image de l'affiche MISA 2026 pour une lecture facile sur tous les appareils.</p>
+        <h2>Documents</h2>
+        <p>Affiche et plaquette officielles de la JS-MISA 2026.</p>
         <div class="section__divider"></div>
       </div>
       <figure class="poster-frame">
-        <img src="assets/design-full.png" alt="Affiche MISA 2026 — Journée scientifique du 24 juin 2026" width="1191" height="1685" />
+        <img src="assets/design-full.png" alt="Affiche JS-MISA 2026 — Journée scientifique du 24 juin 2026" width="1191" height="1685" />
       </figure>
       <div class="poster-actions">
-        <a class="btn btn--primary" href="MISA-2026.pdf" download>Télécharger le PDF</a>
+        <a class="btn btn--primary" href="MISA-2026.pdf" download>Télécharger l'affiche (PDF)</a>
+        <a class="btn btn--primary" href="Plaquette-JS-MISA.pdf" download>Télécharger la plaquette (PDF)</a>
         <a class="btn btn--secondary" href="assets/design-full.png" download>Télécharger l'image</a>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt" id="registration">
+  <section class="section reveal" id="registration">
     <div class="container">
       <div class="section__header">
         <h2>Inscription</h2>
@@ -306,26 +392,27 @@
       </div>
       <div class="action-grid">
         <article class="action-card">
-          <h3>Participation à la journée</h3>
+          <h3>Participation</h3>
           <p>
-            L'inscription est ouverte aux chercheurs, enseignants, étudiants et professionnels intéressés
-            par la métrologie et l'accréditation.
+            La participation par communication est <strong>gratuite</strong>. L'événement est ouvert
+            aux chercheurs, enseignants, doctorants, étudiants et professionnels du secteur industriel.
           </p>
-          <a class="btn btn--primary" href="https://www.est-uh2c.ac.ma/contact/" target="_blank" rel="noopener noreferrer">Contacter l'organisateur</a>
+          <a class="btn btn--primary" href="mailto:estc.benali@gmail.com?subject=JS-MISA%202026%20-%20Inscription">S'inscrire par e-mail</a>
         </article>
         <article class="action-card">
           <h3>Informations pratiques</h3>
           <p>
-            Mercredi 24 juin 2026 · 8h30 – 17h<br />
-            École Supérieure de Technologie, Route d'El Jadida, Km 7, Casablanca
+            Jeudi 24 juin 2026 · 8h30 – 17h30<br />
+            École Supérieure de Technologie<br />
+            Route d'El Jadida, Km 7 — Casablanca, Maroc
           </p>
-          <a class="btn btn--secondary" href="tel:+212522252245">+212 522 252245</a>
+          <a class="btn btn--secondary" href="tel:+212662209039">+212 662 209039</a>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="submit">
+  <section class="section section--alt reveal" id="submit">
     <div class="container">
       <div class="section__header">
         <h2>Soumettre</h2>
@@ -333,38 +420,39 @@
       </div>
       <div class="action-grid">
         <article class="action-card">
-          <h3>📢 Appel à communications</h3>
+          <h3>Modalités de soumission</h3>
           <p>
-            Les auteurs sont invités à soumettre des communications orales dans les domaines de la métrologie,
-            de l'instrumentation scientifique, de la qualité, de la normalisation et de l'accréditation.
+            Les résumés doivent être envoyés en format Word (.doc ou .docx) par e-mail à
+            <a href="mailto:estc.benali@gmail.com">estc.benali@gmail.com</a>.
           </p>
-          <a class="btn btn--primary" href="https://www.est-uh2c.ac.ma/contact/" target="_blank" rel="noopener noreferrer">Contacter pour soumettre</a>
+          <p>
+            Le résumé ne doit pas dépasser <strong>3 pages</strong>. Une notification d'acceptation
+            sera envoyée dans les délais communiqués dans le calendrier officiel.
+          </p>
+          <a class="btn btn--primary" href="mailto:estc.benali@gmail.com?subject=JS-MISA%202026%20-%20Soumission">Envoyer un résumé</a>
         </article>
         <article class="action-card">
-          <h3>Modalités</h3>
-          <p>
-            Les communications sélectionnées seront présentées lors des sessions orales parallèles (14h – 17h).
-            La date limite de soumission sera communiquée prochainement.
-          </p>
+          <h3>Calendrier de soumission</h3>
+          <ul class="dates-list dates-list--compact">
+            <li>
+              <span class="dates-list__date">21 juin 2026</span>
+              <span class="dates-list__label">Date limite de soumission</span>
+            </li>
+            <li>
+              <span class="dates-list__date">22 juin 2026</span>
+              <span class="dates-list__label">Réponse du comité scientifique</span>
+            </li>
+            <li>
+              <span class="dates-list__date">24 juin 2026</span>
+              <span class="dates-list__label">Présentations orales retenues (14h – 17h)</span>
+            </li>
+          </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section section--alt" id="editions">
-    <div class="container">
-      <div class="section__header">
-        <h2>Éditions précédentes</h2>
-        <div class="section__divider"></div>
-      </div>
-      <ul class="editions-list">
-        <li><strong>Première édition MISA</strong> — Informations et archives à venir</li>
-        <li><strong>MISA 2026</strong> — Deuxième édition, 24 juin 2026, EST Casablanca</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" id="venue">
+  <section class="section reveal" id="venue">
     <div class="container">
       <div class="section__header">
         <h2>Bienvenue à Casablanca</h2>
@@ -379,8 +467,12 @@
             Casablanca, Maroc
           </p>
           <p>
-            Téléphone : <a href="tel:+212522252245">+212 522 252245</a><br />
-            Site web : <a href="https://www.est-uh2c.ac.ma/contact/" target="_blank" rel="noopener noreferrer">est-uh2c.ac.ma</a>
+            <strong>Coordonnateur :</strong> Mohamed BEN ALI (ESTC, UH2C)<br />
+            E-mail : <a href="mailto:estc.benali@gmail.com">estc.benali@gmail.com</a><br />
+            Téléphone : <a href="tel:+212662209039">+212 662 209039</a>
+          </p>
+          <p>
+            <a class="btn btn--secondary" href="https://goo.gl/maps/2n3pPFnJFyutWVvL6" target="_blank" rel="noopener noreferrer">Voir sur Google Maps</a>
           </p>
         </div>
       </div>
@@ -391,10 +483,11 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <h4>Contact</h4>
+          <h4>Contact JS-MISA</h4>
           <ul>
-            <li><a href="tel:+212522252245">+212 522 252245</a></li>
-            <li><a href="https://www.est-uh2c.ac.ma/contact/" target="_blank" rel="noopener noreferrer">est-uh2c.ac.ma/contact</a></li>
+            <li><a href="mailto:estc.benali@gmail.com">estc.benali@gmail.com</a></li>
+            <li><a href="tel:+212662209039">+212 662 209039</a></li>
+            <li>Pr. BEN ALI Mohamed — ESTC, UH2C</li>
           </ul>
         </div>
         <div>
@@ -409,14 +502,14 @@
           <h4>Navigation</h4>
           <ul>
             <li><a href="#program">Programme</a></li>
-            <li><a href="#topics">Thèmes</a></li>
+            <li><a href="#topics">Thématiques</a></li>
             <li><a href="#submit">Soumettre</a></li>
             <li><a href="#venue">Lieu</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        MISA 2026 — Métrologie, Instrumentation Scientifique et Accréditation
+        JS-MISA 2026 — Journée Scientifique en Métrologie, Instrumentation et Accréditation
       </div>
     </div>
   </footer>
