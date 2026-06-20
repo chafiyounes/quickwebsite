@@ -410,52 +410,54 @@
       <article class="doc-block" id="plaquette">
         <h3 class="doc-block__title">Plaquette</h3>
         <div class="plaquette-viewer">
-          <div class="plaquette-viewer__stage">
+          <div class="plaquette-viewer__viewport">
+            <div class="plaquette-viewer__track">
+              <figure class="plaquette-slide">
+                <div class="image-zoom" data-image-zoom>
+                  <img
+                    src="assets/documents/plaquette-page-1.png"
+                    alt="Plaquette JS-MISA 2026 — page 1"
+                    width="1685"
+                    height="1191"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+              </figure>
+              <figure class="plaquette-slide">
+                <div class="image-zoom" data-image-zoom>
+                  <img
+                    src="assets/documents/plaquette-page-2.png"
+                    alt="Plaquette JS-MISA 2026 — page 2"
+                    width="1685"
+                    height="1191"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="plaquette-viewer__nav">
             <button class="plaquette-viewer__arrow plaquette-viewer__arrow--prev" type="button" aria-label="Page précédente">❮</button>
-            <div class="plaquette-viewer__viewport">
-              <div class="plaquette-viewer__track">
-                <figure class="plaquette-slide">
-                  <div class="image-zoom" data-image-zoom>
-                    <img
-                      src="assets/documents/plaquette-page-1.png"
-                      alt="Plaquette JS-MISA 2026 — page 1"
-                      width="1685"
-                      height="1191"
-                      loading="lazy"
-                      draggable="false"
-                    />
-                  </div>
-                </figure>
-                <figure class="plaquette-slide">
-                  <div class="image-zoom" data-image-zoom>
-                    <img
-                      src="assets/documents/plaquette-page-2.png"
-                      alt="Plaquette JS-MISA 2026 — page 2"
-                      width="1685"
-                      height="1191"
-                      loading="lazy"
-                      draggable="false"
-                    />
-                  </div>
-                </figure>
+            <div class="plaquette-viewer__meta">
+              <p class="plaquette-viewer__label" id="plaquette-page-label">Page 1 / 2</p>
+              <div class="plaquette-viewer__dots" aria-hidden="true">
+                <button type="button" class="plaquette-viewer__dot is-active" data-page="0" aria-label="Page 1"></button>
+                <button type="button" class="plaquette-viewer__dot" data-page="1" aria-label="Page 2"></button>
               </div>
             </div>
             <button class="plaquette-viewer__arrow plaquette-viewer__arrow--next" type="button" aria-label="Page suivante">❯</button>
           </div>
-          <div class="plaquette-viewer__footer">
-            <p class="plaquette-viewer__label" id="plaquette-page-label">Page 1 / 2</p>
-            <p class="image-zoom__hint image-zoom__hint--inline">Maintenez le clic et déplacez pour zoomer</p>
-            <div class="plaquette-viewer__dots" aria-hidden="true">
-              <button type="button" class="plaquette-viewer__dot is-active" data-page="0" aria-label="Page 1"></button>
-              <button type="button" class="plaquette-viewer__dot" data-page="1" aria-label="Page 2"></button>
-            </div>
-            <a class="doc-download-btn" href="Plaquette-JS-MISA.pdf" download>
-              <svg class="doc-download-btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 3v10"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>
-              </svg>
-              Télécharger la plaquette
-            </a>
-          </div>
+
+          <p class="image-zoom__hint image-zoom__hint--plaquette">Maintenez le clic et déplacez pour zoomer</p>
+          <a class="doc-download-btn doc-download-btn--plaquette" href="Plaquette-JS-MISA.pdf" download>
+            <svg class="doc-download-btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v10"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>
+            </svg>
+            Télécharger la plaquette
+          </a>
         </div>
       </article>
     </div>
