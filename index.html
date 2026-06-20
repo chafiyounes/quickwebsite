@@ -374,20 +374,50 @@
     </div>
   </section>
 
-  <section class="section section--alt" id="poster">
+  <section class="section section--alt reveal" id="poster">
     <div class="container poster-section">
       <div class="section__header">
         <h2>Documents</h2>
-        <p>Affiche et plaquette officielles de la JS-MISA 2026.</p>
+        <p>Consultez l'affiche et la plaquette officielles de la JS-MISA 2026.</p>
         <div class="section__divider"></div>
       </div>
-      <figure class="poster-frame">
-        <img src="assets/design-full.png" alt="Affiche JS-MISA 2026 — Journée scientifique du 24 juin 2026" width="1191" height="1685" />
-      </figure>
-      <div class="poster-actions">
-        <a class="btn btn--primary" href="MISA-2026.pdf" download>Télécharger l'affiche (PDF)</a>
-        <a class="btn btn--primary" href="Plaquette-JS-MISA.pdf" download>Télécharger la plaquette (PDF)</a>
-        <a class="btn btn--secondary" href="assets/design-full.png" download>Télécharger l'image</a>
+
+      <div class="doc-viewer">
+        <div class="doc-viewer__controls">
+          <button class="doc-viewer__arrow doc-viewer__arrow--prev" type="button" aria-label="Document précédent">❮</button>
+          <div class="doc-viewer__meta">
+            <p class="doc-viewer__label" id="doc-viewer-label">Affiche officielle</p>
+            <div class="doc-viewer__dots" aria-hidden="true">
+              <button type="button" class="doc-viewer__dot is-active" data-doc-index="0" aria-label="Affiche officielle"></button>
+              <button type="button" class="doc-viewer__dot" data-doc-index="1" aria-label="Plaquette"></button>
+            </div>
+          </div>
+          <button class="doc-viewer__arrow doc-viewer__arrow--next" type="button" aria-label="Document suivant">❯</button>
+        </div>
+
+        <div class="doc-viewer__viewport">
+          <div class="doc-viewer__track">
+            <article class="doc-slide">
+              <iframe
+                class="doc-slide__frame"
+                src="MISA-2026.pdf"
+                title="Affiche officielle JS-MISA 2026"
+              ></iframe>
+            </article>
+            <article class="doc-slide">
+              <iframe
+                class="doc-slide__frame"
+                src="Plaquette-JS-MISA.pdf"
+                title="Plaquette JS-MISA 2026"
+              ></iframe>
+            </article>
+          </div>
+        </div>
+
+        <div class="poster-actions">
+          <a class="btn btn--primary doc-download doc-download--0" href="MISA-2026.pdf" download>Télécharger l'affiche (PDF)</a>
+          <a class="btn btn--primary doc-download doc-download--1" href="Plaquette-JS-MISA.pdf" download hidden>Télécharger la plaquette (PDF)</a>
+        </div>
       </div>
     </div>
   </section>

@@ -767,20 +767,98 @@ img {
   margin-bottom: 0.35rem;
 }
 
-/* Poster / design image */
+/* Documents viewer */
 .poster-section {
   text-align: center;
 }
 
-.poster-frame {
-  display: inline-block;
-  max-width: 760px;
-  width: 100%;
+.doc-viewer {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.doc-viewer__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.doc-viewer__arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  color: var(--navy);
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.doc-viewer__arrow:hover {
+  background: var(--gray-100);
+  border-color: var(--sky);
+  transform: scale(1.05);
+}
+
+.doc-viewer__meta {
+  flex: 1;
+  text-align: center;
+}
+
+.doc-viewer__label {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.doc-viewer__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.doc-viewer__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gray-200);
+  cursor: pointer;
+  padding: 0;
+}
+
+.doc-viewer__dot.is-active {
+  background: var(--gold);
+}
+
+.doc-viewer__viewport {
+  overflow: hidden;
   background: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius);
-  padding: 0.75rem;
   box-shadow: var(--shadow);
+}
+
+.doc-viewer__track {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
+.doc-slide {
+  min-width: 100%;
+}
+
+.doc-slide__frame {
+  width: 100%;
+  height: min(78vh, 920px);
+  border: none;
+  display: block;
+  background: #fff;
 }
 
 .poster-actions {
@@ -789,6 +867,10 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
+}
+
+.poster-actions [hidden] {
+  display: none;
 }
 
 .btn {
@@ -993,5 +1075,9 @@ img {
 
   .topbar__logo {
     height: 28px;
+  }
+
+  .doc-slide__frame {
+    height: 65vh;
   }
 }

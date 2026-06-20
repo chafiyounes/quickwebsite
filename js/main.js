@@ -67,31 +67,66 @@
   const nextBtn = document.querySelector(".carousel-btn--next");
   const dotsContainer = document.querySelector(".carousel-dots");
 
-  if (!track || slides.length === 0) return;
+  if (track && slides.length > 0 && prevBtn && nextBtn && dotsContainer) {
+    let index = 0;
 
-  let index = 0;
-
-  slides.forEach((_, i) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "carousel-dot" + (i === 0 ? " is-active" : "");
-    dot.setAttribute("aria-label", "Thème " + (i + 1));
-    dot.addEventListener("click", () => goTo(i));
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = dotsContainer.querySelectorAll(".carousel-dot");
-
-  function goTo(i) {
-    index = (i + slides.length) % slides.length;
-    track.style.transform = "translateX(-" + index * 100 + "%)";
-    dots.forEach((dot, dotIndex) => {
-      dot.classList.toggle("is-active", dotIndex === index);
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carousel-dot" + (i === 0 ? " is-active" : "");
+      dot.setAttribute("aria-label", "Thème " + (i + 1));
+      dot.addEventListener("click", () => goTo(i));
+      dotsContainer.appendChild(dot);
     });
+
+    const dots = dotsContainer.querySelectorAll(".carousel-dot");
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + index * 100 + "%)";
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === index);
+      });
+    }
+
+    prevBtn.addEventListener("click", () => goTo(index - 1));
+    nextBtn.addEventListener("click", () => goTo(index + 1));
+
+    setInterval(() => goTo(index + 1), 8000);
   }
 
-  prevBtn.addEventListener("click", () => goTo(index - 1));
-  nextBtn.addEventListener("click", () => goTo(index + 1));
+  /* Documents viewer (affiche / plaquette) */
+  const docTrack = document.querySelector(".doc-viewer__track");
+  const docSlides = document.querySelectorAll(".doc-slide");
+  const docPrev = document.querySelector(".doc-viewer__arrow--prev");
+  const docNext = document.querySelector(".doc-viewer__arrow--next");
+  const docDots = document.querySelectorAll(".doc-viewer__dot");
+  const docLabel = document.getElementById("doc-viewer-label");
+  const docDownloads = document.querySelectorAll(".doc-download");
 
-  setInterval(() => goTo(index + 1), 8000);
+  const docTitles = ["Affiche officielle", "Plaquette"];
+
+  if (docTrack && docSlides.length > 0) {
+    let docIndex = 0;
+
+    function goToDoc(i) {
+      docIndex = (i + docSlides.length) % docSlides.length;
+      docTrack.style.transform = "translateX(-" + docIndex * 100 + "%)";
+      docDots.forEach((dot) => {
+        dot.classList.toggle("is-active", Number(dot.dataset.docIndex) === docIndex);
+      });
+      if (docLabel) docLabel.textContent = docTitles[docIndex];
+      docDownloads.forEach((btn) => {
+        btn.hidden = !btn.classList.contains("doc-download--" + docIndex);
+      });
+    }
+
+    if (docPrev) docPrev.addEventListener("click", () => goToDoc(docIndex - 1));
+    if (docNext) docNext.addEventListener("click", () => goToDoc(docIndex + 1));
+    docDots.forEach((dot) => {
+      dot.addEventListener("click", () => goToDoc(Number(dot.dataset.docIndex)));
+    });
+
+    goToDoc(0);
+  }
 })();
