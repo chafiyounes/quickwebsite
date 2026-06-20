@@ -102,7 +102,6 @@
   const docNext = document.querySelector(".doc-viewer__arrow--next");
   const docDots = document.querySelectorAll(".doc-viewer__dot");
   const docLabel = document.getElementById("doc-viewer-label");
-  const docDownloads = document.querySelectorAll(".doc-download");
 
   const docTitles = ["Affiche officielle", "Plaquette"];
 
@@ -116,9 +115,6 @@
         dot.classList.toggle("is-active", Number(dot.dataset.docIndex) === docIndex);
       });
       if (docLabel) docLabel.textContent = docTitles[docIndex];
-      docDownloads.forEach((btn) => {
-        btn.hidden = !btn.classList.contains("doc-download--" + docIndex);
-      });
     }
 
     if (docPrev) docPrev.addEventListener("click", () => goToDoc(docIndex - 1));
