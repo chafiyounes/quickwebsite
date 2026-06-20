@@ -95,34 +95,34 @@
     setInterval(() => goTo(index + 1), 8000);
   }
 
-  /* Documents viewer (affiche / plaquette) */
-  const docTrack = document.querySelector(".doc-viewer__track");
-  const docSlides = document.querySelectorAll(".doc-slide");
-  const docPrev = document.querySelector(".doc-viewer__arrow--prev");
-  const docNext = document.querySelector(".doc-viewer__arrow--next");
-  const docDots = document.querySelectorAll(".doc-viewer__dot");
-  const docLabel = document.getElementById("doc-viewer-label");
+  /* Plaquette carousel */
+  const plaquetteTrack = document.querySelector(".plaquette-viewer__track");
+  const plaquetteSlides = document.querySelectorAll(".plaquette-slide");
+  const plaquettePrev = document.querySelector(".plaquette-viewer__arrow--prev");
+  const plaquetteNext = document.querySelector(".plaquette-viewer__arrow--next");
+  const plaquetteDots = document.querySelectorAll(".plaquette-viewer__dot");
+  const plaquetteLabel = document.getElementById("plaquette-page-label");
 
-  const docTitles = ["Affiche officielle", "Plaquette"];
+  if (plaquetteTrack && plaquetteSlides.length > 0) {
+    let pageIndex = 0;
 
-  if (docTrack && docSlides.length > 0) {
-    let docIndex = 0;
-
-    function goToDoc(i) {
-      docIndex = (i + docSlides.length) % docSlides.length;
-      docTrack.style.transform = "translateX(-" + docIndex * 100 + "%)";
-      docDots.forEach((dot) => {
-        dot.classList.toggle("is-active", Number(dot.dataset.docIndex) === docIndex);
+    function goToPage(i) {
+      pageIndex = (i + plaquetteSlides.length) % plaquetteSlides.length;
+      plaquetteTrack.style.transform = "translateX(-" + pageIndex * 100 + "%)";
+      plaquetteDots.forEach((dot) => {
+        dot.classList.toggle("is-active", Number(dot.dataset.page) === pageIndex);
       });
-      if (docLabel) docLabel.textContent = docTitles[docIndex];
+      if (plaquetteLabel) {
+        plaquetteLabel.textContent = "Page " + (pageIndex + 1) + " / " + plaquetteSlides.length;
+      }
     }
 
-    if (docPrev) docPrev.addEventListener("click", () => goToDoc(docIndex - 1));
-    if (docNext) docNext.addEventListener("click", () => goToDoc(docIndex + 1));
-    docDots.forEach((dot) => {
-      dot.addEventListener("click", () => goToDoc(Number(dot.dataset.docIndex)));
+    if (plaquettePrev) plaquettePrev.addEventListener("click", () => goToPage(pageIndex - 1));
+    if (plaquetteNext) plaquetteNext.addEventListener("click", () => goToPage(pageIndex + 1));
+    plaquetteDots.forEach((dot) => {
+      dot.addEventListener("click", () => goToPage(Number(dot.dataset.page)));
     });
 
-    goToDoc(0);
+    goToPage(0);
   }
 })();
