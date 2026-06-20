@@ -102,11 +102,122 @@
   const plaquetteNext = document.querySelector(".plaquette-viewer__arrow--next");
   const plaquetteDots = document.querySelectorAll(".plaquette-viewer__dot");
   const plaquetteLabel = document.getElementById("plaquette-page-label");
+  const zoomContainers = document.querySelectorAll("[data-image-zoom]");
+
+  function resetAllZoom() {
+    zoomContainers.forEach((container) => {
+      if (typeof container._resetZoom === "function") container._resetZoom();
+    });
+  }
+
+  function initImageZoom(container) {
+    const img = container.querySelector("img");
+    if (!img) return;
+
+    const SCALE = 2.75;
+    let active = false;
+    let panX = 0;
+    let panY = 0;
+    let startMouseX = 0;
+    let startMouseY = 0;
+    let startPanX = 0;
+    let startPanY = 0;
+    let pointerId = null;
+
+    function clampPan() {
+      const dw = img.offsetWidth;
+      const dh = img.offsetHeight;
+      const maxPanX = container.clientWidth - dw * SCALE;
+      const maxPanY = container.clientHeight - dh * SCALE;
+      panX = Math.min(0, Math.max(maxPanX, panX));
+      panY = Math.min(0, Math.max(maxPanY, panY));
+    }
+
+    function applyTransform(animate) {
+      container.classList.toggle("is-dragging", active && !animate);
+      img.style.transform = "translate(" + panX + "px, " + panY + "px) scale(" + (active ? SCALE : 1) + ")";
+    }
+
+    function resetZoom() {
+      active = false;
+      pointerId = null;
+      panX = 0;
+      panY = 0;
+      container.classList.remove("is-active", "is-dragging");
+      applyTransform(true);
+    }
+
+    container._resetZoom = resetZoom;
+
+    function getPoint(event) {
+      const rect = container.getBoundingClientRect();
+      const source = event.touches ? event.touches[0] : event;
+      return {
+        x: source.clientX - rect.left,
+        y: source.clientY - rect.top,
+        clientX: source.clientX,
+        clientY: source.clientY,
+      };
+    }
+
+    function onPress(event) {
+      if (event.button !== undefined && event.button !== 0) return;
+      event.preventDefault();
+      const point = getPoint(event);
+      active = true;
+      pointerId = event.pointerId !== undefined ? event.pointerId : "touch";
+
+      panX = point.x - point.x * SCALE;
+      panY = point.y - point.y * SCALE;
+      clampPan();
+
+      startMouseX = point.clientX;
+      startMouseY = point.clientY;
+      startPanX = panX;
+      startPanY = panY;
+
+      container.classList.add("is-active");
+      applyTransform(false);
+
+      if (container.setPointerCapture && event.pointerId !== undefined) {
+        container.setPointerCapture(event.pointerId);
+      }
+    }
+
+    function onMove(event) {
+      if (!active) return;
+      if (pointerId !== null && event.pointerId !== undefined && event.pointerId !== pointerId) return;
+      event.preventDefault();
+
+      const point = getPoint(event);
+      panX = startPanX + (point.clientX - startMouseX);
+      panY = startPanY + (point.clientY - startMouseY);
+      clampPan();
+      applyTransform(false);
+    }
+
+    function onRelease(event) {
+      if (!active) return;
+      if (pointerId !== null && event.pointerId !== undefined && event.pointerId !== pointerId) return;
+      resetZoom();
+    }
+
+    container.addEventListener("pointerdown", onPress);
+    container.addEventListener("pointermove", onMove);
+    container.addEventListener("pointerup", onRelease);
+    container.addEventListener("pointercancel", onRelease);
+    container.addEventListener("lostpointercapture", onRelease);
+
+    container.addEventListener("dragstart", (event) => event.preventDefault());
+  }
+
+  zoomContainers.forEach(initImageZoom);
 
   if (plaquetteTrack && plaquetteSlides.length > 0) {
     let pageIndex = 0;
 
     function goToPage(i) {
+      resetAllZoom();
       pageIndex = (i + plaquetteSlides.length) % plaquetteSlides.length;
       plaquetteTrack.style.transform = "translateX(-" + pageIndex * 100 + "%)";
       plaquetteDots.forEach((dot) => {
